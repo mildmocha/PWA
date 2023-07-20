@@ -74,6 +74,10 @@ const createItem = (listId,aa) => {
   item.classList.add('item');
   item.draggable = 'true';  
 
+  const timeElement = document.createElement('span');
+  timeElement.textContent = aa.time , '시간'; // aa.time은 시간 값을 갖는 속성으로 가정합니다.
+  item.appendChild(timeElement);
+
   item.addEventListener('dragstart',dragStart); 
   item.addEventListener('dragend',dragEnd); 
   item.addEventListener('contextmenu',removeItem) //오른쪽 마우스를 누르면 아이템을 삭제하는 함수 실행
@@ -88,15 +92,17 @@ const saveList =(aa)=>{
   localStorage.setItem(aa,JSON.stringify(lists[aa]))
 }
 
+
 //입력값을 받아오고, 아이디 만들고, 새로운 아이템 만들어주는 함수
 const createTodo = (e) => {
   e.preventDefault();  
   const input = document.querySelector('input');
   const id = uuidv4();  
-
+  const currentTime = new Date();
   const newTodo = {
     id,
     text :input.value,
+    time: currentTime.toLocaleDateString()
   }  
   createItem('todo', newTodo) 
   input.value= '';  
