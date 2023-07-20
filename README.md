@@ -14,3 +14,6 @@ item에 ID를 부여해서 드래그를 시작했을 때 ID값을 변수 from에
 <br>
 item을 각 카테고리별 키 값을 갖고있는 json으로 변환시켜 localstorage에 저장하고 불러온다.<br>
 item에 마우스 오른쪽버튼을 누르면 그 item의 id값을 filter해서 삭제한다
+<br>
+service worker를 설치해서 아이콘도 추가하고 <br>
+PWA로 변환 모바일 실행까지 확인 해 봤다. 
